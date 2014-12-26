@@ -1,13 +1,16 @@
 /* HTTP Error implementation */
 
+"use strict";
+
 var util = require('util');
+var FUNCTION = require('nor-function');
 
 /** Exception type for HTTP errors */
 function HTTPError() {
 	var args = Array.prototype.slice.call(arguments);
 	if(!(this instanceof arguments.callee)) {
 		var self = new (arguments.callee);
-		return self.apply(self, args);
+		return FUNCTION(self).apply(self, args);
 	}
 
 	var headers, msg, code;
