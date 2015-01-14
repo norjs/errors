@@ -9,9 +9,16 @@ var FUNCTION = require('nor-function');
 /** Exception type for HTTP errors */
 function HTTPError() {
 	var args = Array.prototype.slice.call(arguments);
-	if(!(this instanceof arguments.callee)) {
-		var self = new (arguments.callee);
-		return FUNCTION(self).apply(self, args);
+	if(!(this instanceof HTTPError)) {
+		if(args.length === 1) {
+			return new HTTPError(args[0]);
+		} else if(args.length === 2) {
+			return new HTTPError(args[0], args[1]);
+		} else if(args.length === 3) {
+			return new HTTPError(args[0], args[1], args[2]);
+		} else {
+			throw new TypeError("Too many arguments (" + args.length + ") for new HTTPError()");
+		}
 	}
 
 	var headers, msg, code;
