@@ -1,6 +1,6 @@
 {
   "name": "nor-errors",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "nor-errors ==========",
   "main": "src/index.js",
   "scripts": {
@@ -18,13 +18,13 @@
     "url": "https://github.com/sendanor/nor-errors/issues"
   },
   "dependencies": {
-    "nor-function": ">= 0.1.7 < 0.2.0",
-    "nor-array": ">= 0.1.8 < 0.2.0"
+    "nor-function" : "^0.1.7",
+    "nor-array"    : "^0.1.8"
   },
   "devDependencies": {
-    "lint"         : "*",
-    "jshint"       : "*",
-    "mocha"        : "*"
+    "lint"         : "^1.1.2",
+    "jshint"       : "^2.9.2",
+    "mocha"        : "^2.5.3"
   },
   "homepage": "https://github.com/sendanor/nor-errors"
 }
