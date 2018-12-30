@@ -3,7 +3,6 @@
 "use strict";
 
 var util = require('util');
-var ARRAY = require('nor-array');
 
 /** Exception type for HTTP errors */
 function HTTPError () {
@@ -21,7 +20,7 @@ function HTTPError () {
 	}
 
 	var headers, msg, code;
-	ARRAY(args).forEach(function(arg) {
+	args.forEach(function(arg) {
 		if(typeof arg === 'object') {
 			headers = arg;
 		}
