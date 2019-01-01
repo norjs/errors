@@ -1,10 +1,16 @@
 {
   "name": "@norjs/errors",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Error classes for NorJS",
-  "main": "src/index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile-watch": "babel --watch -d dist/ src/",
+    "compile": "babel -d dist/ src/",
+    "prepare": "npm run -s compile",
+    "pretest": "npm run -s compile",
+    "test": "mocha --require @babel/register test/unit/**/*.spec.js",
+    "preversion": "npm test",
+    "postversion": "git push && git push --tags",
     "lint": "node-lint src/ --config=lint.json",
     "jshint": "jshint src/"
   },
@@ -17,12 +23,16 @@
   "bugs": {
     "url": "https://github.com/norjs/errors/issues"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/cli": "^7.2.3",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "mocha": "^5.2.0",
+    "sinon": "^7.2.2",
     "jshint": "^2.9.2",
-    "lint": "^1.1.2",
-    "mocha": "^5.2.0"
+    "lint": "^1.1.2"
   },
   "homepage": "https://github.com/norjs/errors"
 }
